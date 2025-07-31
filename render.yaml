@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: flask-backend
+    env: python
+    buildCommand: ./build.sh
+    startCommand: python backend/main.py
+    envVars:
+      - key: FLASK_ENV
+        value: production
+    region: oregon
+    plan: free
+
+  - type: web
+    name: react-frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm run dev
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://shophub.onrender.com
+    region: oregon
+    plan: free
