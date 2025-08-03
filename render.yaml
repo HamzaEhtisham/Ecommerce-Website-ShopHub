@@ -2,7 +2,7 @@ services:
   - type: web
     name: flask-backend
     env: python
-    buildCommand: ./build.sh
+    buildCommand: ./build.bat
     startCommand: python backend/main.py
     envVars:
       - key: FLASK_ENV
